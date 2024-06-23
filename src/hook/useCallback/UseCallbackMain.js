@@ -32,12 +32,17 @@ function UseCallbackMain(props) {
 
 
     useEffect(() => {
-        console.warn("variable count was updated", count);
+        console.log("variable count was updated", count);
         // readCountVaraible("effect");
     }, [count]);
 
     useEffect(() => {
-        console.error("variable objArr was updated", objArr);
+        if(objArr.length === 0)
+        {
+            return () => false;
+        }
+        console.log("variable objArr was updated", objArr);
+        
     }, [objArr]);
 
     return (
