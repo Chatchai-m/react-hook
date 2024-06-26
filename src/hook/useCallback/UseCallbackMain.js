@@ -7,6 +7,7 @@ const ABCD = memo(UseCallbackButton);
 function UseCallbackMain(props) {
     const [count, setCount] = useState(0);
     const [objArr, setObjArr] = useState([]);
+    const [input, setInput] = useState("");
     // const handleClick = () => {    
     //     setCount((c) => c + 1);  
     // };
@@ -49,14 +50,6 @@ function UseCallbackMain(props) {
         <>
             <h1>Test2 - UseCallbackMain</h1>
             <p>You clicked {count} times</p>
-            <br></br>
-            {
-                objArr.map(function(item, index){
-                    return <div key={index}>{item.timestamp} | <button onClick={ (e)=> { delObjArr(item.timestamp);}}>-</button></div>
-                })
-            }
-            <br></br>
-
             <button onClick={(e) => {
                 handleClick();
             } }>Click me</button>
@@ -64,6 +57,16 @@ function UseCallbackMain(props) {
             <button onClick={ (e)=> {
                 addObjArr();
             }}>Add Arr to Obj</button>
+            <br />
+            <br />
+            {
+                objArr.map(function(item, index){
+                    return <div key={index}>{item.timestamp} | <button onClick={ (e)=> { delObjArr(item.timestamp);}}>-</button></div>
+                })
+            }
+            <br></br>
+
+
             {/* <UseCallbackButton onClickCount={handleClick} /> */}
             {/* <ABCD onClickCount={handleClick} />     */}
         </>

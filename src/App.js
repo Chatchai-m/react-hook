@@ -5,6 +5,7 @@ import Main1 from './layout/Main1';
 import Main2 from './layout/Main2'; 
 import Test1 from './other/Test1';
 import UseCallbackMain from './hook/useCallback/UseCallbackMain';
+import UseRefMain from './hook/useRef/UseRefMain';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<Main1/>}>
             <Route path="/test1"  element={<Test1 />} key="1" />
             <Route path="/useCallback"  element={<UseCallbackMain />} key="2" />
+            <Route path="/useRef"  element={<UseRefMain />} key="3" />
           </Route>
           <Route path="/main2" element={<Main2/>}>
             <Route path="/main2/test1"  element={<Test1 />} key="1" />
