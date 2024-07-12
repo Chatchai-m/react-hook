@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function onRender(id, phase, actualDuration, baseDuration, startTime, commitTime) {
 	console.log("id=>", id);
@@ -18,9 +18,9 @@ function onRender(id, phase, actualDuration, baseDuration, startTime, commitTime
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	// <Profiler id="App" onRender={onRender}>
-		<React.StrictMode>
+		// <React.StrictMode>
 			<App />
-		</React.StrictMode>
+		// </React.StrictMode>
 	// </Profiler>
 );
 
