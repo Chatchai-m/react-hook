@@ -22,6 +22,8 @@ axios.interceptors.request.use((config) =>
       config.url = host + config.url;
     }
 
+    config.data.append("token", "TEST1000");
+
     return config;
   }, (error) => {
     return Promise.reject(error);
@@ -50,7 +52,8 @@ function App() {
             <Route path="/useContext"  element={<UseContext />} key="4" />
             <Route path="/useContextProblem"  element={<UseContextProblem />} key="5" />
             <Route path="/useReducer"  element={<UseReducer />} key="5" />
-            <Route path="/blog-main"  element={<BlogMain />} key="1" />
+
+            <Route path="/blog-main"  element={<BlogMain />} key="6" />
 
           </Route>
           <Route path="/main2" element={<Main2/>}>
