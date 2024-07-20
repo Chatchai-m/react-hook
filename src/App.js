@@ -12,6 +12,7 @@ import UseReducer from "./hook/useReducer/UseReducer";
 
 import axios from "axios";
 import BlogMain from './other/BlogMain';
+import P404 from "./other/P404";
 
 axios.interceptors.request.use((config) =>
   {
@@ -56,6 +57,9 @@ function App() {
           <Route path="/main2" element={<Main2/>}>
             <Route path="/main2/test1"  element={<Test1 />} key="1" />
           </Route>
+          
+          <Route path="*" element={ <P404 /> } />
+        
         </Routes>
       </BrowserRouter>
     </>
