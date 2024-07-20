@@ -8,6 +8,8 @@ export default function BlogMain() {
 
     const loadData = () => {
         let formData = new FormData();
+        formData.append("id", "");
+        
         axios({
             method: 'post',
             url: '/Home/LoadBlog',
