@@ -21,9 +21,7 @@ axios.interceptors.request.use((config) =>
       let host = process.env.NODE_ENV === "production" ? process.env.REACT_APP_PROD_URL : process.env.REACT_APP_DEV_URL;
       config.url = host + config.url;
     }
-    
-    console.warn(config)
-    config.data.append("token", "TOKEN100");
+
     return config;
   }, (error) => {
     return Promise.reject(error);

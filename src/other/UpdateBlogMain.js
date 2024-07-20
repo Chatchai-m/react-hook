@@ -58,7 +58,11 @@ export default function UpdateBlogMain(props) {
         })
         .then(function (response) {
             setShowModal(false);
-            props.funcLoad();
+            if(props.funcLoad)
+            {
+                console.log("LoadBlog")
+                props.funcLoad();
+            }
         })
         .catch( function(error){
         });
