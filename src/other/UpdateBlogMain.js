@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button, Col, Modal, Row } from "react-bootstrap";
 import axios from "axios";
+import AppCustom from "../assets/js/AppCustom";
 
 export default function UpdateBlogMain(props) {
 	const blog_id = props.blog_id || 0;
@@ -27,19 +28,18 @@ export default function UpdateBlogMain(props) {
 
             axios({
                 method: 'post',
-                url: '/Home/ReadBlog',
+                url: '/api/Task/ReadBlog',
                 data: formData
             })
             .then(function (response) {
-                let data = response.data;
-                let blog = data.blog;
+                let resp = response.data;
+                let blog = resp.data;
                 setBlogName(blog.name || "");
                 setAuthorName(blog.authorName || "");
                 setContent(blog.content || "");
             })
-            .catch( function(error){
-                console.warn(error);
-            });
+            .catch(AppCustom.AxiosResponseError);
+
         }
         setShowModal(true);
     }
@@ -53,7 +53,7 @@ export default function UpdateBlogMain(props) {
 
         axios({
             method: 'post',
-            url: '/Home/SaveBlog',
+            url: '/api/Task/SaveBlog',
             data: formData
         })
         .then(function (response) {
@@ -64,8 +64,8 @@ export default function UpdateBlogMain(props) {
                 props.funcLoad();
             }
         })
-        .catch( function(error){
-        });
+        .catch(AppCustom.AxiosResponseError);
+
     }
 
     return (<div>

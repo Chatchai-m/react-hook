@@ -2,6 +2,7 @@ import React, {  useEffect, useRef, useState} from 'react';
 import axios from "axios";
 import { Button, Col, Row } from 'react-bootstrap';
 import UpdateBlogMain from './UpdateBlogMain';
+import AppCustom from "../assets/js/AppCustom";
 
 export default function BlogMain() {
     const [blogData, setBlogData] = useState([]);
@@ -17,13 +18,11 @@ export default function BlogMain() {
         })
         .then(function (response) {
             let resp = response.data;
-            console.warn(resp.data.blogs)
+            // console.warn(resp.data.blogs);
             setBlogData(resp.data.blogs);
         })
-        .catch( function(error){
-            console.error(error);
-            console.error(error.response.data);
-        });
+        .catch(AppCustom.AxiosResponseError);
+
     }
 
     useEffect(() => {
