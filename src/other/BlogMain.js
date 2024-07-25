@@ -12,15 +12,17 @@ export default function BlogMain() {
         
         axios({
             method: 'post',
-            url: '/Home/LoadBlog',
+            url: '/api/Task/LoadBlog',
             data: formData
         })
         .then(function (response) {
-            let data = response.data;
-            setBlogData(data.rs.blogs2);
+            let resp = response.data;
+            console.warn(resp.data.blogs)
+            setBlogData(resp.data.blogs);
         })
         .catch( function(error){
             console.error(error);
+            console.error(error.response.data);
         });
     }
 

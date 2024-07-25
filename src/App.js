@@ -13,6 +13,9 @@ import UseReducer from "./hook/useReducer/UseReducer";
 import axios from "axios";
 import BlogMain from './other/BlogMain';
 import P404 from "./other/P404";
+import {useState} from "react";
+import LayoutLogin from "./layout/LayoutLogin";
+const access_token = localStorage.getItem('access_token');
 
 axios.interceptors.request.use((config) =>
   {
@@ -22,6 +25,8 @@ axios.interceptors.request.use((config) =>
       let host = process.env.NODE_ENV === "production" ? process.env.REACT_APP_PROD_URL : process.env.REACT_APP_DEV_URL;
       config.url = host + config.url;
     }
+
+    config.headers.Authorization = `Bearer ${access_token}`;
 
     return config;
   }, (error) => {
@@ -40,26 +45,36 @@ axios.interceptors.response.use((response) =>
 
 
 function App() {
+
+  let route1 =  <Route path="/" element={<LayoutLogin/>}></Route>;
+  let route2 = "";
+  if(access_token)
+  {
+    route1 =  <Route path="/" element={<Main1/>}>
+      <Route path="/test1"  element={<Test1 />} key="1" />
+      <Route path="/useCallback"  element={<UseCallbackMain />} key="2" />
+      <Route path="/useRef"  element={<UseRefMain />} key="3" />
+      <Route path="/useContext"  element={<UseContext />} key="4" />
+      <Route path="/useContextProblem"  element={<UseContextProblem />} key="5" />
+      <Route path="/useReducer"  element={<UseReducer />} key="5" />
+      <Route path="/blog-main"  element={<BlogMain />} key="1" />
+    </Route>
+
+    route2 = <Route path="/main2" element={<Main2/>}>
+      <Route path="/main2/test1"  element={<Test1 />} key="1" />
+    </Route>
+  }
+
+
+
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Main1/>}>
-            <Route path="/test1"  element={<Test1 />} key="1" />
-            <Route path="/useCallback"  element={<UseCallbackMain />} key="2" />
-            <Route path="/useRef"  element={<UseRefMain />} key="3" />
-            <Route path="/useContext"  element={<UseContext />} key="4" />
-            <Route path="/useContextProblem"  element={<UseContextProblem />} key="5" />
-            <Route path="/useReducer"  element={<UseReducer />} key="5" />
-            <Route path="/blog-main"  element={<BlogMain />} key="1" />
-
-          </Route>
-          <Route path="/main2" element={<Main2/>}>
-            <Route path="/main2/test1"  element={<Test1 />} key="1" />
-          </Route>
-          
+          {route1}
+          {route2}
           <Route path="*" element={ <P404 /> } />
-        
+
         </Routes>
       </BrowserRouter>
     </>
