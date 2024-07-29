@@ -44,7 +44,7 @@ export default function LayoutLogin() {
                         <input
                             type={"text"} className={"form-control form-control-sm"}
                             value={username}
-                            onChange={ e=> setUsername(e.target.value) }
+                            onChange={e => setUsername(e.target.value)}
                         />
                     </Col>
                 </div>
@@ -54,7 +54,7 @@ export default function LayoutLogin() {
                             type={"text"}
                             className={"form-control form-control-sm"}
                             value={password}
-                            onChange={ e=> setPassword(e.target.value) }
+                            onChange={e => setPassword(e.target.value)}
                         />
                     </Col>
                 </div>
@@ -63,6 +63,11 @@ export default function LayoutLogin() {
                         <button className={"btn  btn-sm btn-secondary"} onClick={Login}>Login</button>
                     </Col>
                 </div>
+                <br/>
+                <h1>ABCD</h1>
+                <h1>ABCD</h1>
+                
+            
             </div>
         </React.Fragment>
     )
