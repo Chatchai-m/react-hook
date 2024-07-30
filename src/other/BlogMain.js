@@ -1,4 +1,4 @@
-import React, {  useEffect, useRef, useState} from 'react';
+import React, {useEffect, useMemo, useRef, useState} from 'react';
 import axios from "axios";
 import { Button, Col, Row } from 'react-bootstrap';
 import UpdateBlogMain from './UpdateBlogMain';
@@ -29,6 +29,12 @@ export default function BlogMain() {
         loadData();
     }, []);
 
+    const visibleTodos = useMemo(
+        () => {
+
+        },
+        []
+    );
     return (
         <div>
             {/* <h1 className='mb-4'>Child test1</h1> */}
@@ -54,6 +60,7 @@ export default function BlogMain() {
                                     <b>id:</b> {item.id}, <b>name:</b> {item.name}, <b>author name:</b> {item.authorName}, <b>content:</b> {item.content} 
                                 </div>
                                 <div className='col-4 text-end'>
+                                    {/*<button className={"btn btn-sm btn-warning"}>Edit</button>*/}
                                     <UpdateBlogMain blog_id={item.id} funcLoad={loadData}></UpdateBlogMain>
                                 </div>
                             </div>
