@@ -66,8 +66,9 @@ function App() {
             <Route path="/useRef" element={<UseRefMain/>} key="3"/>
             <Route path="/useContext" element={<UseContext/>} key="4"/>
             <Route path="/useContextProblem" element={<UseContextProblem/>} key="5"/>
-            <Route path="/useReducer" element={<UseReducer/>} key="5"/>
-            <Route path="/blog-main" element={<BlogMain/>} key="1"/>
+            <Route path="/useReducer" element={<UseReducer/>} key="6"/>
+
+            <Route path="/blog-main" element={<BlogMain/>} key="7"/>
         </Route>;
 
 

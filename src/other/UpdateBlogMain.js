@@ -10,7 +10,7 @@ export default function UpdateBlogMain(props) {
     {
         btn_name = btn_name === "" && blog_id === 0 ? "Create": "Edit";
     }
-
+    // console.log("upload =>", props);
     const [showModal, setShowModal] = useState(false);
 	const [blogName, setBlogName] = useState("");
 	const [authorName, setAuthorName] = useState("");

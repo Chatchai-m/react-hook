@@ -51,7 +51,7 @@ export default function LayoutLogin() {
                 <div className={"row mb-1"}>
                     <Col className={"col-2"}>
                         <input
-                            type={"text"}
+                            type={"password"}
                             className={"form-control form-control-sm"}
                             value={password}
                             onChange={e => setPassword(e.target.value)}

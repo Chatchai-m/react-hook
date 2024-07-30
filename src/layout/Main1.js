@@ -1,5 +1,6 @@
 import React from "react";
-import { NavLink, Outlet, useLocation } from "react-router-dom";
+import {Link, NavLink, Outlet, useLocation} from "react-router-dom";
+import {Col, Row} from "react-bootstrap";
 
 export default function Main1() {
 
@@ -11,7 +12,11 @@ export default function Main1() {
     return (
         <React.Fragment>
             <div style={{ padding:"10px" }}>
-                Main1 - Menu: <NavLink to="/blog-main">Blog</NavLink> | <NavLink to="/useCallback">useCallback</NavLink> | <a href={"#"} onClick={Logout}>Logout</a>
+                <NavLink to="/test1">Main1 - Menu</NavLink> |
+                <NavLink to="/blog-main">Blog</NavLink> |
+                <NavLink to="/useReducer">useReducer</NavLink> |
+                <NavLink to="/useCallback">useCallback</NavLink> |
+                <a href={"#"} onClick={Logout}>Logout</a>
                 <Outlet />
             </div>
         </React.Fragment>
