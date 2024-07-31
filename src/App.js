@@ -15,6 +15,7 @@ import P404 from "./other/P404";
 import {useEffect, useState} from "react";
 import LayoutLogin from "./layout/LayoutLogin";
 import AppCustom from "./assets/js/AppCustom";
+import Tailwind2 from "./main2/Tailwind2";
 const access_token = localStorage.getItem('access_token');
 
 axios.interceptors.request.use((config) =>
@@ -73,7 +74,7 @@ function App() {
 
 
         let temp_route2 = <Route path="/main2" element={<Main2/>}>
-            <Route path="/main2/test1" element={<Test1/>} key="1"/>
+            <Route path="/main2/tailwind2" element={<Tailwind2/>} key="1"/>
         </Route>;
 
         setRoute1(temp_route1);

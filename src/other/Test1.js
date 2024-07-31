@@ -1,5 +1,6 @@
 import React from "react";
-export default function Test1({navigation}) {
+export default function Test1({navigation})
+{
 
     //Kong Ruksiam
     return (
